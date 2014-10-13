@@ -52,6 +52,3 @@ docs/_build/
 
 # PyBuilder
 target/
-
-/1/lab1/.idea
-/2/lab2/.idea
