@@ -9,22 +9,6 @@ count = 0
 def func(x):
     return (np.sin(x) + np.cos(x))
 
-def W(n, N, dir):
-  return np.exp(-1j * dir * 2 * np.pi * n/N)
-
-def TFFT(x, dir):
-    global count
-    N = len(x)
-    if N <= 1:
-        return x
-    even = TFFT(x[0::2], dir)
-    odd = TFFT(x[1::2], dir)
-
-    for n in xrange(N/2):
-        count += 1
-    return [even[n] + W(n, N, dir) * odd[n] for n in xrange(N/2)] + \
-           [even[n] - W(n, N, dir) * odd[n] for n in xrange(N/2)]
-
 def FWT(x, dir):
     N = len(x)
     if N <= 1:
